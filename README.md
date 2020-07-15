@@ -3,9 +3,5 @@ This forkes from https://github.com/wi-fi-analyzer/nosnex, bug fixes, effective 
 ### HowTo Install And Run
 Just run
 ```
-./install.sh
-```
-And Run
-```
 ./nosnex.sh
 ```

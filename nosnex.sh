@@ -36,7 +36,7 @@ HANDSHAKE_PATH="/root/handshakes"
 PASSLOG_PATH="/root/pwlog"
 WORK_DIR=`pwd`
 DEAUTHTIME="9999999999999"
-revision=9
+revision=2
 version=2
 IP=192.168.1.1
 RANG_IP=$(echo $IP | cut -d "." -f 1,2,3)
@@ -66,7 +66,7 @@ general_exitmode_4="Cleaning "$grey"iptables"
 general_exitmode_5="Restoring "$grey"tput"
 general_exitmode_6="Restarting "$grey"Network-Manager"
 general_exitmode_7="Cleanup performed successfully!"
-general_exitmode_8="Thanks for using fluxion"
+general_exitmode_8="Thanks for using nosnex"
 #############################################################################################
 
 # DEBUG MODE = 0 ; DEBUG MODE = 1 [Normal Mode / Developer Mode]
@@ -94,7 +94,7 @@ airmon
 # Check Updates
 function checkupdatess {
 
-        revision_online="$(timeout -s SIGTERM 20 curl "https://raw.githubusercontent.com/FluxionNetwork/fluxion/master/fluxion" 2>/dev/null| grep "^revision" | cut -d "=" -f2)"
+        revision_online="$(timeout -s SIGTERM 20 curl "https://raw.githubusercontent.com/zexceed12300/nosnex/master/nosnex" 2>/dev/null| grep "^revision" | cut -d "=" -f2)"
         if [ -z "$revision_online" ]; then
                 echo "?">$DUMP_PATH/Irev
         else
@@ -142,7 +142,7 @@ function top(){
         conditional_clear
         echo -e "$red[~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~]"
         echo -e "$red[                                                      ]"
-  echo -e "$red[  $red    FLUXION $version" "${yellow} ${red}  < F""${yellow}luxion" "${red}I""${yellow}s" "${red}T""${yellow}he ""${red}F""${yellow}uture >     "              ${blue}"    ]"
+  echo -e "$red[  $red    NOSNEX $version" "${yellow} ${red}  < F""${yellow}luxion" "${red}I""${yellow}s" "${red}T""${yellow}he ""${red}F""${yellow}uture >     "              ${blue}"    ]"
         echo -e "$blue[                                                      ]"
         echo -e "$blue[~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~]""$transparent"
         echo
@@ -396,9 +396,9 @@ if [ $FLUX_DEBUG != 1 ]; then
         echo""
 
         sleep 0.1
-        echo -e $red"                     FLUXION "$white""$version" (rev. "$green "$revision"$white") "$yellow"by "$white" ghost"
+        echo -e $red"                     NOSNEX "$white""$version" (rev. "$green "$revision"$white") "$yellow"by "$white" ghost"
         sleep 0.1
-        echo -e $green "           Page:"$red"https://github.com/FluxionNetwork/fluxion  "$transparent
+        echo -e $green "           Page:"$red"https://github.com/zexceed12300/nosnex  "$transparent
         sleep 0.1
         echo -n "                              Latest rev."
         tput civis
@@ -419,7 +419,7 @@ if [ $FLUX_DEBUG != 1 ]; then
 
                             if [ "$doupdate" = "Y" ]; then
                                 cp $0 $HOME/flux_rev-$revision.backup
-                                curl "https://raw.githubusercontent.com/FluxionNetwork/fluxion/master/fluxion" -s -o $0
+                                curl "https://raw.githubusercontent.com/zexceed12300/nosnex/master/nosnex" -s -o $0
                                 echo
                                 echo
                                 echo -e ""$red"Updated successfully! Restarting the script to apply the changes ..."$transparent""
@@ -555,7 +555,7 @@ else
                 echo -e "      "$red"["$yellow"10"$red"]"$transparent" French     "
                 echo -e "      "$red"["$yellow"11"$red"]"$transparent" Slovenian "
                 echo "                                       "
-                echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+                echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
                 read yn
                 echo ""
                 case $yn in
@@ -617,7 +617,7 @@ function setinterface {
                                 line="1"
                         else
                                 echo
-                                echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+                                echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
                                 read line
                         fi
 
@@ -702,7 +702,7 @@ function choosescan {
                         echo -e "      "$red"["$yellow"2"$red"]"$transparent" $choosescan_option_2       "
                         echo -e "      "$red"["$yellow"3"$red"]"$red" $general_back       " $transparent
                         echo "                                       "
-                        echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+                        echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
                         read yn
                         echo ""
                         case $yn in
@@ -728,7 +728,7 @@ function Scanchan {
           echo -e "     $scanchan_option_2 "$blue"1-5"$transparent"             "
           echo -e "     $scanchan_option_2 "$blue"1,2,5-7,11"$transparent"      "
           echo "                                       "
-        echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+        echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
         read channel_number
         set -- ${channel_number}
         conditional_clear
@@ -824,7 +824,7 @@ function selection {
                 echo -e ""$blue "("$white"*"$blue") $selection_1"$transparent""
                 echo ""
                 echo -e "        $selection_2"
-                echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+                echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
                 read choice
         fi
 
@@ -881,7 +881,7 @@ function askAP {
                         echo -e "      "$red"["$yellow"2"$red"]"$transparent" $askAP_option_2"
                         echo -e "      "$red"["$yellow"3"$red"]"$red" $general_back" $transparent
                         echo "                                       "
-                        echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+                        echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
                         read yn
                         echo ""
                         case $yn in
@@ -911,7 +911,7 @@ function askauth {
                         echo -e "      "$red"["$yellow"2"$red"]"$transparent" $askauth_option_2"
                         echo -e "      "$red"["$yellow"3"$red"]"$red" $general_back" $transparent
                         echo "                                       "
-                        echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+                        echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
                         read yn
                         echo ""
                         case $yn in
@@ -1038,7 +1038,7 @@ function deauthforce {
                         echo -e "      "$red"["$yellow"2"$red"]"$transparent" $deauthforce_option_1"
                         echo -e "      "$red"["$yellow"3"$red"]"$red" $general_back" $transparent
                         echo "                                       "
-                        echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+                        echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
                         read yn
                         echo ""
                         case $yn in
@@ -1080,7 +1080,7 @@ function askclientsel {
                         echo -e "      "$red"["$yellow"4"$red"]"$transparent" Rescan networks "
                         echo -e "      "$red"["$yellow"5"$red"]"$transparent" Exit"
                         echo "                                       "
-                        echo -n -e ""$red"["$blue"deltaxflux"$yellow"@"$white"fluxion"$red"]-["$yellow"~"$red"]"$transparent""
+                        echo -n -e ""$red"["$blue"zexceed12300"$yellow"@"$white"nosnex"$red"]-["$yellow"~"$red"]"$transparent""
                         read yn
                         echo ""
                         case $yn in
